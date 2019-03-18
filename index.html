@@ -1,0 +1,78 @@
+<html>
+    <header>This is a random-choose-people project</header>
+<head>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+        function _(str){
+			return $(str).get(0)
+		}
+        function ChooseRequest(){
+            $.ajax({ url:"choose.php",type:"POST",data:{},
+                success: function (data){
+                    _("#return").innerHTML = data
+                },
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+                }
+            })
+        }
+        function AddRequest(){
+            $.ajax({ url:"add.php",type:"POST",data:{name:inputname},
+                success: function (data){
+                    refresh()
+                    _("#confirm").innerHTML = data
+                },
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+                }
+            })
+        }
+        function refresh(){
+            $.ajax({ url:"refresh.php",type:"POST",data:{},
+                success: function (data){
+                    _("#table").innerHTML = data
+                },
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+                }
+            })
+        }
+        $(document).ready(function(){
+            refresh()
+            $("#choose").click(function(){
+                ChooseRequest()
+            })
+            $("#add").click(function(){
+                inputname = _("#addpeople").value
+                AddRequest()
+            })
+
+            setInterval(function(){
+
+                },100)
+        })
+    </script>
+    </head>
+    <body>
+
+        <div>
+            <p id = "table"></p>
+        </div>
+
+        <div class = "return">
+            <span id = "return"></span>
+        </div>
+
+        <div class = "choose">
+            <button id = "choose">choose people</button>
+        </div>
+
+        <div>
+            <button id = "add">add people</button>
+            <input id = "addpeople">
+            <br>
+            <span id = "confirm"></span>
+        </div>
+
+    </body>
+</html>
