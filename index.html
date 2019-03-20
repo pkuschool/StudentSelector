@@ -5,10 +5,38 @@
     <script>
         function _(str){
 			return $(str).get(0)
-		}
+        }
+        function OrganizeData(data){
+            while (_(".studentlist") != null){
+                _("#table").removeChild(_(".studentlist"))
+            }
+            var infor = []
+            while (data.indexOf(";") != -1){
+                var subdata = data.substring(0,data.indexOf(";")) + ","
+                var subinfor = []
+                while (subdata.indexOf(",") != -1){
+                    subinfor.push(subdata.slice(0,subdata.indexOf(",")))
+                    subdata = subdata.substring(subdata.indexOf(",")+1,subdata.length)
+                }
+                infor.push(subinfor)
+                var data = data.substring(data.indexOf(";")+1,data.length)
+            }
+            for (i in infor){
+                var newrow = document.createElement("tr")
+                var newcell = document.createElement("td")
+                var newimg = document.createElement("img")
+                newimg.setAttribute("src",infor[i][1])
+                newcell.innerHTML = infor[i][0]
+                newcell.appendChild(newimg)
+                newrow.appendChild(newcell)
+                newrow.setAttribute("class","studentlist")
+                _("#table").appendChild(newrow)
+            }
+        }
         function ChooseRequest(){
             $.ajax({ url:"choose.php",type:"POST",data:{},
-                success: function (data){
+                success: function (data){ 
+                    
                     _("#return").innerHTML = data
                 },
                 beforeSend: function(xhr){
@@ -17,20 +45,23 @@
             })
         }
         function AddRequest(){
-            $.ajax({ url:"add.php",type:"POST",data:{name:inputname},
-                success: function (data){
+            var newimg = new FormData()
+            newimg.append("file",_("#img").files[0])
+            newimg.append("name",inputname)
+            $.ajax({ url:"add.php",type:"POST",data:newimg,
+                contentType:false,
+                processData:false,
+                success : function (data){
                     refresh()
                     _("#confirm").innerHTML = data
-                },
-                beforeSend: function(xhr){
-                    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
                 }
             })
         }
         function refresh(){
             $.ajax({ url:"refresh.php",type:"POST",data:{},
-                success: function (data){
-                    _("#table").innerHTML = data
+                success: function (data){ 
+                    OrganizeData(data)
+                    //_("#table").innerHTML = data
                 },
                 beforeSend: function(xhr){
                     xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
@@ -48,15 +79,16 @@
             })
 
             setInterval(function(){
-
+                    
                 },100)
         })
     </script>
     </head>
     <body>
-
+        
         <div>
-            <p id = "table"></p>
+            <table id = "table" border="1" >
+            </table>
         </div>
 
         <div class = "return">
@@ -71,10 +103,10 @@
             <button id = "add">add people</button>
             <input id = "addpeople">
             <br>
+            <input type = "file" id = "img">upload picture
+            <br>
             <span id = "confirm"></span>
         </div>
-
+    
     </body>
 </html>
-<!---->
-<!---->
