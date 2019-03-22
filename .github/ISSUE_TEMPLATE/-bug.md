@@ -1,7 +1,7 @@
 ---
 name: 报BUG
 about: 给出已有的问题
-title: ""
+title: ''
 labels: BUG
 assignees: ''
 
