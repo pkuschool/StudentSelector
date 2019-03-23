@@ -52,7 +52,7 @@
         foreach ($p_data as $key => $p_v) {
             $o_msg .= $p_v . ', ';
         }
-    }else if($_POST['s_op']=='C'){
+    } else if ($_POST['s_op'] == 'C') {
         $p_data->clear();
         $o_msg = "Cleared!";
     }
@@ -61,12 +61,17 @@
 </head>
 
 <body>
-    <div id="container">
-        <p>命令列表：D为按字符串删除，A为增加，S为随机选择，L为列出，C为清空。</p>
+    <div id="container" style="width: 700px; margin: 0 auto;">
+        <p class="teal card-panel white-text">命令列表：D为按字符串删除，A为增加，S为随机选择，L为列出，C为清空。</p>
         <form action="main.php" method="post">
-            <input type="text" name="s_name" id="s_name" class="card-panel teal">
-            <input type="text" name="s_op" id="s_op" class="card-panel teal" value="A">
-            <input type="submit" value="提交" class="waves-effect waves-light btn">
+            <div class="row">
+                <div class="col s8">Name: <input type="text" name="s_name" id="s_name" class="input-field white teal-text-text center-align z-depth-1"></div>
+                <div class="col s2">Op: <input type="text" name="s_op" id="s_op" class="input-field white teal-text center-align z-depth-1" value="A"></div>
+                <div class="col s2"><input type="submit" value="提交" class="waves-effect waves-light btn center-align"></div>
+            </div>
+
+
+
         </form>
         <p class="teal-text"><?php echo $o_msg; ?></p>
     </div>
