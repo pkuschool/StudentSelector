@@ -7,9 +7,9 @@
     <title>主页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php
-    include_once "./dependencies.php";
     session_start();
     error_reporting(E_ERROR);
+    include_once("./dependencies.php");
     //命令列表：D为按字符串删除，A为增加，S为随机选择，L为列出，C为清空。
     $o_msg = "";
     if ($_POST['s_name'] != null) {
