@@ -14,7 +14,7 @@
 </head>
 <body>
     <form action="login.php" method="post">
-        <input type="email" name="u_email" id="u_email"><!--架构设计：无密码，仅邮件，无专用登陆系统-->
+        <input type="email" name="s_email" id="s_email"><!--架构设计：无密码，仅邮件，无专用登陆系统-->
         <input type="submit" value="submit"><!--此按钮回调到自身页面，扔给给上面的PHP代码做登录。-->
     </form>
 </body>
