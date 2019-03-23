@@ -8,12 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css">
     <?php
+        include_once("dependencies.php");//Get Dependencies
         //主要登陆代码
     ?>
 </head>
 <body>
     <form action="login.php" method="post">
-        <input type="email" name="email" id="email"><!--架构设计：无密码，仅邮件，无专用登陆系统-->
+        <input type="email" name="u_email" id="u_email"><!--架构设计：无密码，仅邮件，无专用登陆系统-->
         <input type="submit" value="submit"><!--此按钮回调到自身页面，扔给给上面的PHP代码做登录。-->
     </form>
 </body>
