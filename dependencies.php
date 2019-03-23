@@ -4,4 +4,5 @@
     echo '<link rel="stylesheet" href="./css/materialize.css">';
     echo '<script src="./js/anijs.js"></script>';
     echo '<script src="./js/materialize.js"></script>';
+
 ?>
