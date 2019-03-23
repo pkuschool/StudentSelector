@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>登录 | 点名系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./assets/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css">
     <?php
         //主要登陆代码
     ?>

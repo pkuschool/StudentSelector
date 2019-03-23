@@ -12,3 +12,7 @@
 ## 版本管理
 - 稳定版出现后应推到另一个branch
 
+## 外部库使用
+- 使用了 [normalize.css](https://github.com/necolas/normalize.css)
+- 使用了 [anijs](https://github.com/anijs/anijs)
+
