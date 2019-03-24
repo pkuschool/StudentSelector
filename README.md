@@ -1,7 +1,4 @@
 # StudentSelector 添码俱乐部项目——点名系统
-## 文件规范
-- 本目录应只存储网站本身文件，不包括数据库
-- 严禁3级以上目录
 ## 代码规范
 - 缩进！！缩进！！缩进！！！
 - 变量和函数名不得中英文拼音混杂，应为100%英文
@@ -16,5 +13,5 @@
 - 使用了 [normalize.css](https://github.com/necolas/normalize.css)
 - 使用了 [anijs](https://github.com/anijs/anijs)
 
-## 部署依赖项
-- ds 库
+## Known Issues
+- main.php - 为了正常运行，本地**必须**安装 ds Library。
