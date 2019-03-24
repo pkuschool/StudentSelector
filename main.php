@@ -65,23 +65,25 @@
         $p_data->clear();
         $o_msg = "清空完毕！";
     } else {
-        $o_msg = "以下指令不存在：" . $_POST['s_op'];
+        if ($_POST['s_op'] != "") $o_msg = "以下指令不存在：" . $_POST['s_op'];
     }
     $_SESSION['p_list'] = $p_data;
     ?>
 </head>
 
 <body>
-    <div id="container" style="width: 700px; margin: 0 auto;">
+    <div id="container" style="width: 80%; margin: 0 auto;">
 
         <form action="main.php" method="post">
             <p class="teal card-panel white-text">点名系统 v0.0.0.1 @ Teamer Club</p>
             <div class="row">
-                <div class="col s8">名称<input type="text" name="s_name" id="s_name" class="input-field white teal-text-text center-align z-depth-1">
+                <div class="col s8 input-field">
+                    <input type="text" name="s_name" id="s_name" class="white teal-text-text center-align z-depth-1 validate">
+                    <label for="s_name">名称</label>
                     <p class="teal-text"><?php echo $o_msg; ?></p>
                 </div>
                 <div class="col s2">
-                    命令
+                    <p class="teal-text">命令</p>
                     <!--<input type="text" name="s_op" id="s_op" class="input-field white teal-text center-align z-depth-1" value="A">-->
 
                     <label>
