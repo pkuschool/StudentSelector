@@ -117,7 +117,7 @@
                     </p>
 
                 </div>
-                <div class="col s2"><input type="submit" value="提交" class="waves-effect waves-light btn center-align white-text"></div>
+                <div class="col s2"><input type="submit" value="提交" class="waves-effect waves-light btn center-align white-text btn-large" style="font-size: 25px;"></div>
             </div>
 
 
