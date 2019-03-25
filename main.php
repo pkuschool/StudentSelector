@@ -87,25 +87,25 @@
                     <!--<input type="text" name="s_op" id="s_op" class="input-field white teal-text center-align z-depth-1" value="A">-->
 
                     <label>
-                        <input name="s_op" type="radio" id="A" value="A" class="with-gap" checked />
+                        <input name="s_op" type="radio" id="A" value="A" class="with-gap" <?php if($_POST['s_op']=='A' || $_POST['s_op'] == null){echo "checked";}?> />
                         <span>添加</span>
                     </label>
                     </p>
                     <p>
                         <label>
-                            <input name="s_op" type="radio" id="S" value="S" class="with-gap" />
+                            <input name="s_op" type="radio" id="S" value="S" class="with-gap" <?php if($_POST['s_op']=='S'){echo "checked";}?>/>
                             <span>随机</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input name="s_op" type="radio" id="L" value="L" class="with-gap" />
+                            <input name="s_op" type="radio" id="L" value="L" class="with-gap" <?php if($_POST['s_op']=='L'){echo "checked";}?>/>
                             <span>列出</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input name="s_op" type="radio" id="D" value="D" class="with-gap" />
+                            <input name="s_op" type="radio" id="D" value="D" class="with-gap" <?php if($_POST['s_op']=='D'){echo "checked";}?>/>
                             <span>删除</span>
                         </label>
                     </p>
