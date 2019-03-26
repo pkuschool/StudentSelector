@@ -26,7 +26,7 @@
     - Name => text
 - stuselectclass => $class //这一个表由php调用代码自动创建。
   - (class) // name == classlist => ID
-    - ID => int //学生ID
+    - ID => int //班级内学生ID
     - DisplayName => text //学生姓名
     - weight => int [0-2] //点名权重。
     - CallTime => int [dynamic] //从头到尾被点到的次数
