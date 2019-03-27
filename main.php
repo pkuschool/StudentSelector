@@ -82,13 +82,13 @@
         <form action="main.php" method="post">
             <p class="teal card-panel white-text">点名系统 v0.0.0.1 @ Teamer Club</p>
             <div class="row">
-                <div class="col s8">
+                <div class="col s10">
                     <div class="col s12 input-field">
                         <input type="text" name="s_name" id="s_name" class="white teal-text-text center-align z-depth-1 validate">
                         <label for="s_name">名称</label>
                     </div>
                     <div class="row">
-                        <p class="teal-text col">命令</p>
+                        <p class="teal-text col container">命令</p>
                         <!--<input type="text" name="s_op" id="s_op" class="input-field white teal-text center-align z-depth-1" value="A">-->
                         <p class="col">
                             <label>
@@ -131,8 +131,8 @@
                     </div>
                     <p class="teal-text"><?php echo $o_msg; ?></p>
                 </div>
-                <div class="col s4">
-                    <button class="btn col s2 waves-effect waves-light" type="submit" name="action">提交
+                <div class="col s2">
+                    <button class="btn col s12 waves-effect waves-light large" type="submit" name="action">提交
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
