@@ -83,7 +83,7 @@
             <p class="teal card-panel white-text">点名系统 v0.0.0.1 @ Teamer Club</p>
             <div class="row">
                 <div class="col s10">
-                    <div class="col s12 input-field">
+                    <div class="col s12 input-field null">
                         <input type="text" name="s_name" id="s_name" class="white teal-text-text center-align z-depth-1 validate">
                         <label for="s_name">名称</label>
                     </div>
