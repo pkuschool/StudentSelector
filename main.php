@@ -88,7 +88,7 @@
                         <label for="s_name">名称</label>
                     </div>
                     <div class="row">
-                        <p class="teal-text col container">命令</p>
+                        <p class="teal-text col">命令</p>
                         <!--<input type="text" name="s_op" id="s_op" class="input-field white teal-text center-align z-depth-1" value="A">-->
                         <p class="col">
                             <label>
