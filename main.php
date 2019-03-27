@@ -52,10 +52,15 @@
             }
         }
     } else if ($_POST['s_op'] == 'S') {
-        $randint = random_int(0, count($p_data) - 1);
-        //echo count($p_data)."<br>";
-        //echo $randint;
-        $o_msg = "选择了：" . $p_data->get($randint);
+        if (count($p_data) > 0) {
+            $randint = random_int(0, count($p_data) - 1);
+            //echo count($p_data)."<br>";
+            //echo $randint;
+            $o_msg = "选择了：" . $p_data->get($randint);
+        } else {
+            $o_msg = "班级内无人。";
+            $_POST['s_op'] = 'A';
+        }
     } else if ($_POST['s_op'] == 'L') {
         $o_msg = "所有项目：";
         foreach ($p_data as $key => $p_v) {
@@ -77,47 +82,60 @@
         <form action="main.php" method="post">
             <p class="teal card-panel white-text">点名系统 v0.0.0.1 @ Teamer Club</p>
             <div class="row">
-                <div class="col s8 input-field">
-                    <input type="text" name="s_name" id="s_name" class="white teal-text-text center-align z-depth-1 validate">
-                    <label for="s_name">名称</label>
+                <div class="col s8">
+                    <div class="col s12 input-field">
+                        <input type="text" name="s_name" id="s_name" class="white teal-text-text center-align z-depth-1 validate">
+                        <label for="s_name">名称</label>
+                    </div>
+                    <div class="row">
+                        <p class="teal-text col">命令</p>
+                        <!--<input type="text" name="s_op" id="s_op" class="input-field white teal-text center-align z-depth-1" value="A">-->
+                        <p class="col">
+                            <label>
+                                <input name="s_op" type="radio" id="A" value="A" class="with-gap col" <?php if ($_POST['s_op'] == 'A' || $_POST['s_op'] == null) {
+                                                                                                            echo "checked";
+                                                                                                        } ?> />
+                                <span>添加</span>
+                            </label>
+                        </p>
+                        <p class="col">
+                            <label>
+                                <input name="s_op" type="radio" id="S" value="S" class="with-gap col" <?php if ($_POST['s_op'] == 'S') {
+                                                                                                            echo "checked";
+                                                                                                        } ?> />
+                                <span>随机</span>
+                            </label>
+                        </p>
+                        <p class="col">
+                            <label>
+                                <input name="s_op" type="radio" id="L" value="L" class="with-gap col" <?php if ($_POST['s_op'] == 'L') {
+                                                                                                            echo "checked";
+                                                                                                        } ?> />
+                                <span>列出</span>
+                            </label>
+                        </p>
+                        <p class="col">
+                            <label>
+                                <input name="s_op" type="radio" id="D" value="D" class="with-gap col" <?php if ($_POST['s_op'] == 'D') {
+                                                                                                            echo "checked";
+                                                                                                        } ?> />
+                                <span>删除</span>
+                            </label>
+                        </p>
+                        <p class="col">
+                            <label>
+                                <input name="s_op" type="radio" id="C" value="C" class="with-gap col" />
+                                <span>清空</span>
+                            </label>
+                        </p>
+                    </div>
                     <p class="teal-text"><?php echo $o_msg; ?></p>
                 </div>
-                <div class="col s2">
-                    <p class="teal-text">命令</p>
-                    <!--<input type="text" name="s_op" id="s_op" class="input-field white teal-text center-align z-depth-1" value="A">-->
-
-                    <label>
-                        <input name="s_op" type="radio" id="A" value="A" class="with-gap" <?php if($_POST['s_op']=='A' || $_POST['s_op'] == null){echo "checked";}?> />
-                        <span>添加</span>
-                    </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input name="s_op" type="radio" id="S" value="S" class="with-gap" <?php if($_POST['s_op']=='S'){echo "checked";}?>/>
-                            <span>随机</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input name="s_op" type="radio" id="L" value="L" class="with-gap" <?php if($_POST['s_op']=='L'){echo "checked";}?>/>
-                            <span>列出</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input name="s_op" type="radio" id="D" value="D" class="with-gap" <?php if($_POST['s_op']=='D'){echo "checked";}?>/>
-                            <span>删除</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input name="s_op" type="radio" id="C" value="C" class="with-gap" />
-                            <span>清空</span>
-                        </label>
-                    </p>
-
+                <div class="col s4">
+                    <button class="btn col s2 waves-effect waves-light" type="submit" name="action">提交
+                        <i class="material-icons right">send</i>
+                    </button>
                 </div>
-                <div class="col s2"><input type="submit" value="提交" class="waves-effect waves-light btn center-align white-text btn-large" style="font-size: 25px;"></div>
             </div>
 
 
