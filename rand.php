@@ -13,16 +13,20 @@
         $randint = random_int(0, count($_SESSION['stulist']) - 1);
         //echo count($_SESSION['stulist'])."<br>";
         //echo $randint;
-        $o_msg = "选择了：" . $_SESSION['stulist']->get($randint);
+        $o_msg = $_SESSION['stulist']->get($randint);
     } else {
-        $o_msg = "班级内无人。";
+        $o_msg = "空空如也";
     }
     ?>
 </head>
 
-<body>
-    <div class="container">
+<body class="blue">
+    <div class="container  white-text center centered center-align">
+        <div class=" card-panel white black-text hoverable" style="margin-top: 300px;" onclick="history.go(0);">
+            <p class=" blue-grey-text" style="font-size: 75px;"><?php echo $o_msg; ?></p>
 
+        </div>
+        <div onclick="window.open('main.php','_self')" class="btn blue darken-3 white-text"><i class="material-icons">home</i></div>
     </div>
 </body>
 
