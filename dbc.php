@@ -2,7 +2,7 @@
 <?php
 include_once "./dbpwd.php";
 $base = mysqli_connect("localhost", "stuselect", $dbpwd, "stuselectbase");
-if (mysqli_connect_errno($db)) {
+if (mysqli_connect_errno($base)) {
     echo "<p class='red card-panel white-text'><i class='material-icons left'>error_outline</i>连接 MySQL 失败: " . mysqli_connect_error( ) ."</p>";
 }
 ?>
