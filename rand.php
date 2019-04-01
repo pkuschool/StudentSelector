@@ -20,7 +20,7 @@
     ?>
 </head>
 
-<body class="blue">
+<body class="blue" style=" font-family: '思源黑体', 'PingFang SC', 'Segoe UI';">
     <div class="container  white-text center centered center-align">
         <div class=" card-panel white black-text hoverable waves-effect waves-ripple" style="margin-top: 300px;width: 100%" onclick="history.go(0);">
             <p class=" blue-grey-text" style="font-size: 75px;"><?php echo $o_msg; ?></p>

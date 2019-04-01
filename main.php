@@ -127,11 +127,11 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
-<body class=" teal">
+<body class=" teal" style=" font-family: '思源黑体', 'PingFang SC', 'Segoe UI';">
     <div class="container" style="width:50%;">
         <ul class="collection with-header z-depth-1" style="padding: 0px 0px;margin-top: 100px;margin-bottom: 0;">
             <li class="collection-header teal white-text row" style="padding-top: 5px;margin-top: 0px;margin-bottom: 0;">
-                <p style="font-size: 24px;margin-top: 5px;margin-bottom: 5px;" class="col s10">点名系统 0.0.2</p>
+                <p style="font-size: 24px;margin-top: 5px;margin-bottom: 5px;font-weight: 350;" class="col s10">点名系统 0.0.2</p>
                 <?php if (count($_SESSION['stulist']) != 0) { ?>
                 <button class="btn col s1 blue white-text z-depth-1 waves-light waves-effect topbtn" onclick="window.open('./rand.php', '_self')"><i class="material-icons">control_camera</i></button>
                 <button class="btn col s1 red white-text z-depth-1 waves-light waves-effect topbtn" onclick="clearprompt()"><i class="material-icons">clear_all</i></button>
