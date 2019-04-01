@@ -22,11 +22,11 @@
 
 <body class="blue">
     <div class="container  white-text center centered center-align">
-        <div class=" card-panel white black-text hoverable" style="margin-top: 300px;" onclick="history.go(0);">
+        <div class=" card-panel white black-text hoverable waves-effect waves-ripple" style="margin-top: 300px;width: 100%" onclick="history.go(0);">
             <p class=" blue-grey-text" style="font-size: 75px;"><?php echo $o_msg; ?></p>
 
         </div>
-        <div onclick="window.open('main.php','_self')" class="btn blue darken-3 white-text"><i class="material-icons">home</i></div>
+        <div onclick="window.open('main.php','_self')" class="btn blue darken-3 white-text waves-ripple waves-effect"><i class="material-icons">home</i></div>
     </div>
 </body>
 

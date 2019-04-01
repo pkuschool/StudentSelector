@@ -52,7 +52,7 @@
             }
         }
         if (!$deletesucc) {
-            $o_msg = "项目不存在，无法删除";
+            $o_msg = "学生未录入，无法删除";
         }
         announce($o_msg);
     }
@@ -140,7 +140,7 @@
             </li>
             <li class="collection-item">
                 <form action="./main.php" method="post" class="row" style="margin-bottom: 0px;">
-                    <input type="text" name="strin" id="strin" class="validate col s11" placeholder="输入要添加学生的名字...">
+                    <input type="text" name="strin" id="strin" class="validate col s11" placeholder="输入要添加学生的名字..." required>
                     <input type="text" name="cmd" id="cmd" value="add" class="hide">
                     <button type="submit" class="btn col s1" style="height: 3rem;font-size: 30px;"><i class="material-icons">add</i></button>
                 </form>
