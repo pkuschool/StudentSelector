@@ -68,7 +68,7 @@
             }
             if (!$dupicatecheck) {
                 $_SESSION['stulist']->push($target);
-                $o_msg = $target."添加成功";
+                $o_msg = $target . " 添加成功";
             } else {
                 $o_msg = "学生已存在";
             }
@@ -80,7 +80,7 @@
         global $o_msg;
         $countlength = count($_SESSION['stulist']);
         $_SESSION['stulist']->clear();
-        $o_msg = "已移除所有学生，共".$countlength."个。";
+        $o_msg = "已移除所有学生，共 " . $countlength . " 个。";
         announce($o_msg);
     }
     function announce($in = "")
@@ -132,10 +132,11 @@
         <ul class="collection with-header z-depth-1" style="padding: 0px 0px;margin-top: 100px;margin-bottom: 0;">
             <li class="collection-header teal white-text row" style="padding-top: 5px;margin-top: 0px;margin-bottom: 0;">
                 <p style="font-size: 24px;margin-top: 5px;margin-bottom: 5px;" class="col s10">点名系统 0.0.2</p>
-                <?php if(count($_SESSION['stulist'])!=0){?>
+                <?php if (count($_SESSION['stulist']) != 0) { ?>
                 <button class="btn col s1 blue white-text z-depth-1 waves-light waves-effect topbtn" onclick="window.open('./rand.php', '_self')"><i class="material-icons">control_camera</i></button>
                 <button class="btn col s1 red white-text z-depth-1 waves-light waves-effect topbtn" onclick="clearprompt()"><i class="material-icons">clear_all</i></button>
-                <?php } ?>
+                <?php
+            } ?>
             </li>
             <li class="collection-item">
                 <form action="./main.php" method="post" class="row" style="margin-bottom: 0px;">
@@ -144,12 +145,13 @@
                     <button type="submit" class="btn col s1" style="height: 3rem;font-size: 30px;"><i class="material-icons">add</i></button>
                 </form>
             </li>
-             <?php  if($o_msg!=""){?>
+            <?php if ($o_msg != "") { ?>
             <li class="collection-item">
-                <p class="teal-text"><?php echo $o_msg; ?></p>
+                <p class="teal-text"><span style="font-size:20px; margin-bottom: 10px;"><?php echo $o_msg; ?></span></p>
             </li>
 
-            <?php }
+            <?php
+        }
 
         foreach ($_SESSION['stulist'] as $key => $value) {
             ?>
