@@ -41,13 +41,12 @@
     function deleteobj($target = "")
     {
         global $o_msg;
-        $o_msg = "已删除";
+        $o_msg = "已删除 ";
         $deletesucc = false;
         foreach ($_SESSION['stulist'] as $key => $p_v) {
             if ($p_v == $target) {
                 $_SESSION['stulist']->remove($key);
                 $o_msg .= $p_v;
-                $o_msg .= " | ";
                 $deletesucc = true;
             }
         }
