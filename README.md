@@ -15,3 +15,4 @@
 
 ## Known Issues
 - main.php - 为了正常运行，本地**必须**安装 ds Library。
+- main.php - 为了能显示右上角toast，必须使用233服务器。

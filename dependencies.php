@@ -6,4 +6,4 @@ echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="
 echo '<script src="./js/anijs.js"></script>';
 echo '<script src="./js/materialize.js"></script>';
 echo '<script>M.AutoInit();</script>';
-include_once "./dbc.php";
+//include_once "./dbc.php";
