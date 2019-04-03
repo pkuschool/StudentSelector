@@ -16,3 +16,11 @@
 ## Known Issues
 - main.php - 为了正常运行，本地**必须**安装 ds Library。
 - main.php - Toast不会正常显示
+
+## 部署
+- 需要 PHP 7.*，安装扩展：ds
+- 拖入相关文件夹即可。目前正常流程不会读取数据库。
+- 如需要连接数据库，请创建dbpwd.php，代码如下：
+```php
+<?php $dbpwd = "MYSQL USER PASSWORD"; ?>
+```
