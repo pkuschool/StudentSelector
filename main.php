@@ -11,15 +11,14 @@
     session_start();
 
     error_reporting(E_ERROR);
-    include_once("./dependencies.php");
-    //命令列表：D为按字符串删除，A为增加，S为随机选择，L为列出，C为清空。
+    include_once("./dependencies.php");//加载依赖项
     $o_msg = "";
-    if ($_POST['strin'] != null) {
+    if ($_POST['strin'] != null) {//尽管不允许提交空的添加字符串，还是以防万一写一下。
         $strin = $_POST['strin'];
     } else {
         $strin = "";
     }
-    switch ($_POST['cmd']) {
+    switch ($_POST['cmd']) {//指令判定
         case 'add':
             addobj($strin);
             break;
@@ -36,37 +35,43 @@
             break;
     }
     if ($_SESSION['stulist'] == null) {
-        $_SESSION['stulist'] = new \Ds\Vector();
+        $_SESSION['stulist'] = new \Ds\Vector();//初次运行为null，如果直接装Vector操作会爆炸。
     }
-    function deleteobj($target = "")
+    function deleteobj($target = "")//按字符串删除
     {
         global $o_msg;
         $o_msg = "已删除 ";
-        $deletesucc = false;
+        $deletesucc = 0;//删除次数：0为未删除，1为删除了一次，以此类推
         foreach ($_SESSION['stulist'] as $key => $p_v) {
             if ($p_v == $target) {
                 $_SESSION['stulist']->remove($key);
-                $o_msg .= $p_v;
-                $deletesucc = true;
+                $deletesucc++;//确认删除成功
             }
         }
-        if (!$deletesucc) {
+        if ($deletesucc==0) {
             $o_msg = "学生未录入，无法删除";
+        }else{
+            $o_msg.=$target;
+            if($deletesucc>1){
+                $o_msg .= "(".$deletesucc.")";//如果发现删除了多个，则提示。
+            }
         }
         announce($o_msg);
     }
-    function addobj($target = "")
+    function addobj($target = "")//添加
     {
         global $o_msg;
         if ($target != "") {
-            $dupicatecheck = false;
+            $target = trim($target);//去除字符串前后空格；中间的空格的去除还没做
+            $dupicatecheck = false;//变量：判定是否已有重复
             foreach ($_SESSION['stulist'] as $key => $p_v) {
                 if ($p_v == $target) {
-                    $dupicatecheck = true;
+                    $dupicatecheck = true;//有重复，退出
+                    break;
                 }
             }
             if (!$dupicatecheck) {
-                $_SESSION['stulist']->push($target);
+                $_SESSION['stulist']->push($target);//推进去
                 $o_msg = $target . " 添加成功";
             } else {
                 $o_msg = "学生已存在";
@@ -74,11 +79,11 @@
         }
         announce($o_msg);
     }
-    function clearobj()
+    function clearobj()//清空
     {
         global $o_msg;
         $countlength = count($_SESSION['stulist']);
-        $_SESSION['stulist']->clear();
+        $_SESSION['stulist']->clear();//清空整个列表
         $o_msg = "已移除所有学生，共 " . $countlength . " 个。";
         announce($o_msg);
     }
@@ -87,12 +92,12 @@
     ?>
     <script>
         function clearprompt() {
-            var sure = confirm("是否清空？");
+            var sure = confirm("是否清空列表？");
             if (sure) {
                 post('main.php', {
                     cmd: 'clear',
                     strin: ''
-                })
+                })//发送关闭指令
             }
         }
 
@@ -152,7 +157,7 @@
         foreach ($_SESSION['stulist'] as $key => $value) {
             ?>
             <li class="collection-item">
-                <div><?php echo $value; ?><a class="secondary-content"><i class="material-icons" onclick="post('main.php',{cmd: 'del', strin: '<?php echo $value; ?>'})">close</i></a></div>
+                <div><?php echo $value; ?><a class="secondary-content"><i class="material-icons" onclick="post('main.php',{cmd: 'del', strin: '<?php echo $value; ?>'})">delete</i></a></div>
             </li><?php
 
                 }
