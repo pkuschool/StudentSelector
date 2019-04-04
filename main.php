@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>管理 | 点名系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
     <?php
     session_start();
 
@@ -82,10 +82,7 @@
         $o_msg = "已移除所有学生，共 " . $countlength . " 个。";
         announce($o_msg);
     }
-    function announce($in = "")
-    {
-        echo "<script>M.toast({html: '" . $in . "'})</script>";
-    }
+
 
     ?>
     <script>
@@ -132,8 +129,8 @@
             <li class="collection-header teal white-text row" style="padding-top: 5px;margin-top: 0px;margin-bottom: 0;">
                 <p style="font-size: 24px;margin-top: 5px;margin-bottom: 5px;font-weight: 350;" class="col s10">点名系统 0.0.2</p>
                 <?php if (count($_SESSION['stulist']) != 0) { ?>
-                <button class="btn col s1 blue white-text z-depth-1 waves-light waves-effect topbtn" onclick="window.open('./rand.php', '_self')"><i class="material-icons">control_camera</i></button>
-                <button class="btn col s1 red white-text z-depth-1 waves-light waves-effect topbtn" onclick="clearprompt()"><i class="material-icons">clear_all</i></button>
+                <button class="btn col s1 blue white-text z-depth-1 waves-light waves-effect topbtn" title="点名" onclick="window.open('./rand.php', '_self')"><i class="material-icons">group</i></button>
+                <button class="btn col s1 red white-text z-depth-1 waves-light waves-effect topbtn" title="清空" onclick="clearprompt()"><i class="material-icons">delete_sweep</i></button>
                 <?php
             } ?>
             </li>
@@ -164,6 +161,11 @@
 
 
     </div>
+    <?php function announce($in = "")
+{
+    echo "<script>M.toast({html: '" . $in . "'})</script>";
+}
+?>
 </body>
 <script src="./js/select.js"></script>
 
