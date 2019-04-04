@@ -18,6 +18,7 @@
     } else {
         $strin = "";
     }
+    $strin = trim($strin);//去除字符串前后空格；中间的空格的去除还没做
     switch ($_POST['cmd']) {//指令判定
         case 'add':
             addobj($strin);
@@ -62,7 +63,6 @@
     {
         global $o_msg;
         if ($target != "") {
-            $target = trim($target);//去除字符串前后空格；中间的空格的去除还没做
             $dupicatecheck = false;//变量：判定是否已有重复
             foreach ($_SESSION['stulist'] as $key => $p_v) {
                 if ($p_v == $target) {
