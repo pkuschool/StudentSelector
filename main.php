@@ -11,17 +11,26 @@
     session_start();
 
     error_reporting(E_ERROR);
-    include_once("./dependencies.php");//加载依赖项
+    include_once("./dependencies.php");	  //加载依赖项
     $o_msg = "";
-    if ($_POST['strin'] != null) {//尽管不允许提交空的添加字符串，还是以防万一写一下。
+    if ($_POST['strin'] != null) {	//尽管不允许提交空的添加字符串，还是以防万一写一下。
         $strin = $_POST['strin'];
     } else {
         $strin = "";
     }
-    $strin = trim($strin);//去除字符串前后空格；中间的空格的去除还没做
-    switch ($_POST['cmd']) {//指令判定
+    $strin = trim($strin);	//去除字符串前后空格；中间的空格的去除还没做
+    if ($strin != null and $strin != "") {	//判断分割的字符串在去左右空格后是否为空
+    	$strin_array = explode("/",$strin );	//按"/"拆分非空字符串
+    } else {
+    	$strin_array = array();
+    }
+    foreach ($strin_array as $key => $value) {
+    	    $strin_array[$key] = trim($value);	//去除姓名数组中各个字符串前后空格
+    }
+
+    switch ($_POST['cmd']) {  //指令判定
         case 'add':
-            addobj($strin);
+            addobj($strin_array);
             break;
 
         case 'del':
@@ -36,9 +45,9 @@
             break;
     }
     if ($_SESSION['stulist'] == null) {
-        $_SESSION['stulist'] = new \Ds\Vector();//初次运行为null，如果直接装Vector操作会爆炸。
+        $_SESSION['stulist'] = new \Ds\Vector();  //初次运行为null，如果直接装Vector操作会爆炸。
     }
-    function deleteobj($target = "")//按字符串删除
+    function deleteobj($target = "")  //按字符串删除
     {
         global $o_msg;
         $o_msg = "已删除 ";
@@ -59,25 +68,35 @@
         }
         announce($o_msg);
     }
-    function addobj($target = "")//添加
+    function addobj($target = array())  //添加
     {
         global $o_msg;
-        if ($target != "") {
-            $dupicatecheck = false;//变量：判定是否已有重复
+        if (count($target) != 0) {  //判断传入的是否为空字符串
+        	$repetitive_name = array();
+            $dupicatecheck = false;  //变量：判定是否已有重复
             foreach ($_SESSION['stulist'] as $key => $p_v) {
-                if ($p_v == $target) {
-                    $dupicatecheck = true;//有重复，退出
-                    break;
+            	foreach ($target as $key_t => $i_v) {
+            		if ($p_v == $i_v) {
+                    	$dupicatecheck = true;  //有重复，退出
+                    	array_push($repetitive_name, $key_t);
+                    }
                 }
             }
-            if (!$dupicatecheck) {
-                $_SESSION['stulist']->push($target);//推进去
-                $o_msg = $target . " 添加成功";
-            } else {
-                $o_msg = "学生已存在";
+            foreach ($repetitive_name as $key => $r_value) {
+            	$target[$r_value] = "";
             }
-        }
-        announce($o_msg);
+            $target = array_unique($target);
+            if (!$dupicatecheck) {
+				foreach($target as $key_2 => $i_v){
+					if ($i_v != ""){
+				   		$_SESSION['stulist']->push($i_v); //推进去;
+		            	$o_msg = $i_v . " 添加成功";
+				    } else {$o_msg = $i_v . " 添加失败";} 
+                		announce($o_msg);
+            	}
+        	}
+    	}
+
     }
     function clearobj()//清空
     {
