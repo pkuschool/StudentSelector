@@ -91,7 +91,7 @@
 					if ($i_v != ""){
 				   		$_SESSION['stulist']->push($i_v); //推进去;
 		            	$o_msg = $i_v . " 添加成功";
-				    } else {$o_msg = $i_v . " 添加失败";} 
+				    } else {$o_msg = $i_v . " 添加失败";}
                 		announce($o_msg);
             	}
         	}
