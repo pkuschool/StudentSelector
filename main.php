@@ -28,7 +28,7 @@
     foreach ($strin_array as $key => $value) {
     	    $strin_array[$key] = trim($value);	//去除姓名数组中各个字符串前后空格
     }
-
+            $strin_array = array_unique($strin_array);
     switch ($_POST['cmd']) {  //指令判定
         case 'add':
             addobj($strin_array);
@@ -73,6 +73,28 @@
     {
         global $o_msg;
         if (count($target) != 0) {  //判断传入的是否为空字符串
+        	$addlen=0;
+        	$lastadd="NaN";
+        	foreach ($target as $key => $value) {
+        		$dup = false;
+
+        		foreach ($_SESSION['stulist'] as $srckey => $srcvalue) {
+        			if ($value == $srcvalue) {
+        				$dup=true;
+        			}
+        		}
+        		if(!$dup){
+        			$_SESSION['stulist']->push($value);
+        			$addlen++;
+        			$lastadd = $value;
+        		}
+        	}
+        	if ($addlen > 1) {
+        		$o_msg = "已添加 ".$addlen." 个学生。";
+        	}else if ($addlen == 1) {
+        		$o_msg = "已添加 ".$lastadd;
+        	}else{
+        		$o_msg = "添加失败。所有要添加的项目均已存在。";
         	$repetitive_name = array();
             $dupicatecheck = false;  //变量：判定是否已有重复
             foreach ($_SESSION['stulist'] as $key => $p_v) {
@@ -96,6 +118,7 @@
                 		announce($o_msg);
             	}
         	}
+        	announce($o_msg);
     	}
 
     }
@@ -152,7 +175,7 @@
     <div class="container" style="width:50%;">
         <ul class="collection with-header z-depth-1" style="padding: 0px 0px;margin-top: 100px;margin-bottom: 100px;">
             <li class="collection-header teal white-text row" style="padding-top: 5px;margin-top: 0px;margin-bottom: 0;">
-                <p style="font-size: 24px;margin-top: 5px;margin-bottom: 5px;font-weight: 350;" class="col s10">点名系统 0.0.2</p>
+                <p style="font-size: 24px;margin-top: 5px;margin-bottom: 5px;font-weight: 350;" class="col s10">点名系统 0.0.3</p>
                 <?php if (count($_SESSION['stulist']) != 0) { ?>
                 <button class="btn col s1 blue white-text z-depth-1 waves-light waves-effect topbtn" title="点名" onclick="window.open('./rand.php', '_self')"><i class="material-icons">group</i></button>
                 <button class="btn col s1 red white-text z-depth-1 waves-light waves-effect topbtn" title="清空" onclick="clearprompt()"><i class="material-icons">delete_sweep</i></button>
