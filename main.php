@@ -94,30 +94,7 @@
         	}else if ($addlen == 1) {
         		$o_msg = "已添加 ".$lastadd;
         	}else{
-        		$o_msg = "添加失败。所有要添加的项目均已存在。";
-        	$repetitive_name = array();
-            $dupicatecheck = false;  //变量：判定是否已有重复
-            foreach ($_SESSION['stulist'] as $key => $p_v) {
-            	foreach ($target as $key_t => $i_v) {
-            		if ($p_v == $i_v) {
-                    	$dupicatecheck = true;  //有重复，退出
-                    	array_push($repetitive_name, $key_t);
-                    }
-                }
-            }
-            foreach ($repetitive_name as $key => $r_value) {
-            	$target[$r_value] = "";
-            }
-            $target = array_unique($target);
-            if (!$dupicatecheck) {
-				foreach($target as $key_2 => $i_v){
-					if ($i_v != ""){
-				   		$_SESSION['stulist']->push($i_v); //推进去;
-		            	$o_msg = $i_v . " 添加成功";
-				    } else {$o_msg = $i_v . " 添加失败";}
-                		announce($o_msg);
-            	}
-        	}
+        		$o_msg = "添加失败。所有要添加的项目均已存在。";}
         	announce($o_msg);
     	}
 
