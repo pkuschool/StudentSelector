@@ -18,6 +18,7 @@
     } else {
         $strin = "";
     }
+    $strin = strip_tags($strin);
     $strin = trim($strin);	//去除字符串前后空格；中间的空格的去除还没做
     if ($strin != null and $strin != "") {	//判断分割的字符串在去左右空格后是否为空
     	$strin_array = explode("/",$strin );	//按"/"拆分非空字符串
