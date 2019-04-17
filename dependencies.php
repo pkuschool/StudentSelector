@@ -5,4 +5,8 @@ echo '<link rel="stylesheet" href="./css/materialize.css">';
 echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
 echo '<script src="./js/anijs.js"></script>';
 echo '<script src="./js/materialize.js"></script>';
-//include_once "./dbc.php";
+echo '
+<link rel="shortcut icon" href="./assets/96.png" type="image/x-icon">
+<link rel="shortcut icon" href="./assets/120.png" type="image/x-icon">'
+
+?>
