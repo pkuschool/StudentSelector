@@ -7,6 +7,6 @@ echo '<script src="./js/anijs.js"></script>';
 echo '<script src="./js/materialize.js"></script>';
 echo '
 <link rel="shortcut icon" href="./assets/96.png" type="image/x-icon">
-<link rel="shortcut icon" href="./assets/120.png" type="image/x-icon">'
+<link rel="shortcut icon" href="./assets/120.png" type="image/x-icon">';
 
 ?>
