@@ -21,12 +21,12 @@
     $strin = strip_tags($strin);
     $strin = trim($strin);	//去除字符串前后空格；中间的空格的去除还没做
     if ($strin != null and $strin != "") {	//判断分割的字符串在去左右空格后是否为空
-    	$strin_array = explode("/",$strin );	//按"/"拆分非空字符串
+    	$strin_array = explode("/",$strin);	//按"/"拆分非空字符串
     } else {
     	$strin_array = array();
     }
     foreach ($strin_array as $key => $value) {
-    	    $strin_array[$key] = trim($value);	//去除姓名数组中各个字符串前后空格
+            $strin_array[$key] = trim($value);	//去除姓名数组中各个字符串前后空格
     }
             $strin_array = array_unique($strin_array);
     switch ($_POST['cmd']) {  //指令判定
@@ -177,7 +177,7 @@
         foreach ($_SESSION['stulist'] as $key => $value) {
             ?>
             <li class="collection-item">
-                <div><?php echo $value; ?><a class="secondary-content"><i class="material-icons" onclick="post('main.php',{cmd: 'del', strin: '<?php echo $value; ?>'})">delete</i></a></div>
+                <div><?php echo htmlspecialchars($value) ?><a class="secondary-content"><i class="material-icons" onclick="post('main.php',{cmd: 'del', strin: '<?php echo $value; ?>'})">delete</i></a></div>
             </li><?php
 
                 }
