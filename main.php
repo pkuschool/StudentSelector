@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>管理 | 点名系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
     <?php
     session_start();
 
