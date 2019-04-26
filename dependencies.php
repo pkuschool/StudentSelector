@@ -6,7 +6,6 @@ echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="
 echo '<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>';
 echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>';
 echo '
-<link rel="shortcut icon" href="./assets/96.png" type="image/x-icon">
-<link rel="shortcut icon" href="./assets/120.png" type="image/x-icon">';
+<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">';
 
 ?>
