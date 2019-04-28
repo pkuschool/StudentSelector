@@ -76,6 +76,9 @@
             $addlen = 0;
             $lastadd = "NaN";
             foreach ($target as $key => $value) {
+                if ($value == NULL || $value == "") {
+                    continue;
+                }
                 $dup = false;
 
                 foreach ($_SESSION['stulist'] as $srckey => $srcvalue) {
