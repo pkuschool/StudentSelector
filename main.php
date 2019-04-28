@@ -155,13 +155,13 @@
                 <p style="font-size: 24px;margin-top: 5px;margin-bottom: 5px;font-weight: 350;" class="col">点名系统 0.0.3</p>
                 <?php if (count($_SESSION['stulist']) != 0) { ?>
                     <div class="right topbtn">
-                        <i class="material-icons topbtn selectbtn" title="点名" onclick="window.open('./rand.php', '_self')">group</i>
-                        <i class="material-icons topbtn delbtn" title="清空" onclick="clearprompt()">delete_sweep</i>
+                        <i class="material-icons topbtn selectbtn color-transition" title="点名" onclick="window.open('./rand.php', '_self')">group</i>
+                        <i class="material-icons topbtn delbtn color-transition" title="清空" onclick="clearprompt()">delete_sweep</i>
 
                     </div>
 
                     <!-- <button class="btn col s1 blue white-text z-depth-1 waves-light waves-effect topbtn"></button>
-                    <button class="btn col s1 red white-text z-depth-1 waves-light waves-effect topbtn"></button> -->
+                            <button class="btn col s1 red white-text z-depth-1 waves-light waves-effect topbtn"></button> -->
                 <?php
             } ?>
             </li>
@@ -183,7 +183,7 @@
         foreach ($_SESSION['stulist'] as $key => $value) {
             ?>
                 <li class="collection-item">
-                    <div><?php echo htmlspecialchars($value) ?><a class="secondary-content"><i class="material-icons delbtn" onclick="post('main.php',{cmd: 'del', strin: '<?php echo $value; ?>'})">delete</i></a></div>
+                    <div><?php echo htmlspecialchars($value) ?><a class="secondary-content"><i class="material-icons delbtn dred color-transition" onclick="post('main.php',{cmd: 'del', strin: '<?php echo $value; ?>'})">delete</i></a></div>
                 </li><?php
 
                 }
