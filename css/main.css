@@ -1,4 +1,55 @@
 .topbtn{
     margin-top: 5px;
     padding-left: 5px;
+    font-size: 28px !important;
+    transition: color 0.5s;
+}
+.delbtn:hover{
+    transition: color .5s;
+    color: #ff8800;
+}
+.selectbtn:hover{
+    color: rgb(0, 191, 255);
+}
+
+@media only screen and (min-width: 1200px) {
+    .centwindow{
+        width: 50%;
+    }
+    .collection{
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+}
+@media only screen and (max-width: 1200px) and (min-width: 800px) {
+    .centwindow{
+        width: 60%;
+    }
+    .collection {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+}
+@media only screen and (max-width: 799px) and (min-width: 601px) {
+    .centwindow {
+        width: 75%;
+    }
+    .collection {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .centwindow {
+        width: 100%;
+    }
+    .collection {
+        margin-top: 0px;
+        margin-bottom: 0px;
+
+    }
+
+    .white-on-small{
+        background-color: white !important;
+    }
 }
