@@ -161,9 +161,9 @@
             </li>
             <li class="collection-item">
                 <form action="./main.php" method="post" class="row" style="margin-bottom: 0px;">
-                    <input type="text" name="strin" id="strin" class="validate col s11" placeholder="输入要添加学生的名字..." required>
+                    <input type="text" name="strin" id="strin" class="validate col s12" placeholder="请输入要添加学生的名字，添加多个请以/分隔，回车以提交。" required>
                     <input type="text" name="cmd" id="cmd" value="add" class="hide">
-                    <button type="submit" class="btn col s1" style="height: 3rem;font-size: 30px;"><i class="material-icons">add</i></button>
+                    <button type="submit" class="btn col s1 hide" style="height: 3rem;font-size: 30px;"><i class="material-icons">add</i></button>
                 </form>
             </li>
             <?php if ($o_msg != "") { ?>
