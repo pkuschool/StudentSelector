@@ -1,4 +1,7 @@
 # StudentSelector 添码俱乐部项目——点名系统
+
+<p style="color: red;font-weight: bolder">⚠ 本项目已经荒废并被放弃。较新的开发进度在 <a href="https://github.com/pkuschool/StudentSelector-Electron">StudentSelector-Electron（点名系统Plus）</a> 进行，且不再使用PHP。</p>
+
 ## 代码规范
 - 缩进！！缩进！！缩进！！！
 - 变量和函数名不得中英文拼音混杂，应为100%英文
